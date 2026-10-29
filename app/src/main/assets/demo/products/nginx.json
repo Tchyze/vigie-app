@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "product": "nginx",
+  "label": "nginx",
+  "vendor": "F5 NGINX",
+  "category": "service",
+  "branches": [
+    {
+      "id": "nginx-1.31",
+      "product": "nginx",
+      "vendor": "F5 NGINX",
+      "category": "service",
+      "branch": "1.31",
+      "label": "1.31 (mainline)",
+      "lts": null,
+      "release_date": "2026-04-14",
+      "status": "active",
+      "latest_version": "1.31.8",
+      "latest_release_date": "2026-10-20",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": null,
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Security Support"
+        },
+        "source_url": "https://nginx.org/en/download.html"
+      },
+      "releases": [
+        {
+          "version": "1.31.8",
+          "date": "2026-10-20",
+          "security_fix": false,
+          "summary": "Nouvelles fonctionnalités et corrections.",
+          "url": "https://nginx.org/en/CHANGES"
+        },
+        {
+          "version": "1.31.7",
+          "date": "2026-09-15",
+          "security_fix": true,
+          "summary": "Corrige une vulnérabilité du module HTTP/3.",
+          "url": "https://nginx.org/en/CHANGES"
+        }
+      ],
+      "sources": [
+        "endoflife",
+        "nginx"
+      ]
+    },
+    {
+      "id": "nginx-1.30",
+      "product": "nginx",
+      "vendor": "F5 NGINX",
+      "category": "service",
+      "branch": "1.30",
+      "label": "1.30 (stable)",
+      "lts": null,
+      "release_date": "2026-04-14",
+      "status": "eol_soon",
+      "latest_version": "1.30.6",
+      "latest_release_date": "2026-09-15",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2027-04-14",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2027-04-14",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Security Support"
+        },
+        "source_url": "https://nginx.org/en/download.html"
+      },
+      "releases": [
+        {
+          "version": "1.30.6",
+          "date": "2026-09-15",
+          "security_fix": true,
+          "summary": "Corrige une vulnérabilité du module HTTP/3.",
+          "url": "https://nginx.org/en/CHANGES"
+        },
+        {
+          "version": "1.30.5",
+          "date": "2026-08-12",
+          "security_fix": false,
+          "summary": null,
+          "url": "https://nginx.org/en/CHANGES"
+        }
+      ],
+      "sources": [
+        "endoflife",
+        "nginx"
+      ]
+    },
+    {
+      "id": "nginx-1.28",
+      "product": "nginx",
+      "vendor": "F5 NGINX",
+      "category": "service",
+      "branch": "1.28",
+      "label": "1.28",
+      "lts": null,
+      "release_date": "2025-04-23",
+      "status": "eol",
+      "latest_version": "1.28.3",
+      "latest_release_date": "2026-03-25",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2026-04-14",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2026-04-14",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Security Support"
+        },
+        "source_url": "https://nginx.org/en/download.html"
+      },
+      "releases": [
+        {
+          "version": "1.28.3",
+          "date": "2026-03-25",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://nginx.org/en/CHANGES"
+        }
+      ],
+      "sources": [
+        "endoflife",
+        "nginx"
+      ]
+    }
+  ]
+}

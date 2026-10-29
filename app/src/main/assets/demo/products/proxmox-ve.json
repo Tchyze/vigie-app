@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "product": "proxmox-ve",
+  "label": "Proxmox VE",
+  "vendor": "Proxmox",
+  "category": "os",
+  "branches": [
+    {
+      "id": "proxmox-ve-9",
+      "product": "proxmox-ve",
+      "vendor": "Proxmox",
+      "category": "os",
+      "branch": "9",
+      "label": "9",
+      "lts": null,
+      "release_date": "2025-08-05",
+      "status": "active",
+      "latest_version": "9.2",
+      "latest_release_date": "2026-10-07",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2028-08-31",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2028-08-31",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Security Support"
+        },
+        "source_url": "https://endoflife.date/proxmox-ve"
+      },
+      "releases": [
+        {
+          "version": "9.2",
+          "date": "2026-10-07",
+          "security_fix": null,
+          "summary": null,
+          "url": "https://pve.proxmox.com/wiki/Roadmap"
+        },
+        {
+          "version": "9.1",
+          "date": "2026-04-22",
+          "security_fix": null,
+          "summary": null,
+          "url": "https://pve.proxmox.com/wiki/Roadmap"
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    },
+    {
+      "id": "proxmox-ve-8",
+      "product": "proxmox-ve",
+      "vendor": "Proxmox",
+      "category": "os",
+      "branch": "8",
+      "label": "8",
+      "lts": null,
+      "release_date": "2023-06-22",
+      "status": "eol",
+      "latest_version": "8.4",
+      "latest_release_date": "2025-04-09",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2026-08-31",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2026-08-31",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Security Support"
+        },
+        "source_url": "https://endoflife.date/proxmox-ve"
+      },
+      "releases": [
+        {
+          "version": "8.4",
+          "date": "2025-04-09",
+          "security_fix": null,
+          "summary": null,
+          "url": "https://pve.proxmox.com/wiki/Roadmap"
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    }
+  ]
+}

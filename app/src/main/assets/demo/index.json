@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "eol_soon_months": 6,
+  "products": [
+    {
+      "id": "fortios",
+      "label": "FortiOS",
+      "vendor": "Fortinet",
+      "category": "firewall",
+      "file": "products/fortios.json",
+      "branch_count": 4,
+      "status_counts": {
+        "active": 2,
+        "eol_soon": 1,
+        "eol": 1
+      }
+    },
+    {
+      "id": "panos",
+      "label": "PAN-OS",
+      "vendor": "Palo Alto Networks",
+      "category": "firewall",
+      "file": "products/panos.json",
+      "branch_count": 4,
+      "status_counts": {
+        "active": 3,
+        "eol_soon": 0,
+        "eol": 1
+      }
+    },
+    {
+      "id": "stormshield-sns",
+      "label": "Stormshield SNS",
+      "vendor": "Stormshield",
+      "category": "firewall",
+      "file": "products/stormshield-sns.json",
+      "branch_count": 3,
+      "status_counts": {
+        "active": 2,
+        "eol_soon": 0,
+        "eol": 1
+      }
+    },
+    {
+      "id": "cisco-ios-xe",
+      "label": "Cisco IOS XE",
+      "vendor": "Cisco",
+      "category": "switch",
+      "file": "products/cisco-ios-xe.json",
+      "branch_count": 4,
+      "status_counts": {
+        "active": 2,
+        "eol_soon": 1,
+        "eol": 1
+      }
+    },
+    {
+      "id": "debian",
+      "label": "Debian",
+      "vendor": "Debian",
+      "category": "os",
+      "file": "products/debian.json",
+      "branch_count": 4,
+      "status_counts": {
+        "active": 2,
+        "eol_soon": 0,
+        "eol": 2
+      }
+    },
+    {
+      "id": "windows-server",
+      "label": "Windows Server",
+      "vendor": "Microsoft",
+      "category": "os",
+      "file": "products/windows-server.json",
+      "branch_count": 4,
+      "status_counts": {
+        "active": 2,
+        "eol_soon": 1,
+        "eol": 1
+      }
+    },
+    {
+      "id": "proxmox-ve",
+      "label": "Proxmox VE",
+      "vendor": "Proxmox",
+      "category": "os",
+      "file": "products/proxmox-ve.json",
+      "branch_count": 2,
+      "status_counts": {
+        "active": 1,
+        "eol_soon": 0,
+        "eol": 1
+      }
+    },
+    {
+      "id": "nginx",
+      "label": "nginx",
+      "vendor": "F5 NGINX",
+      "category": "service",
+      "file": "products/nginx.json",
+      "branch_count": 3,
+      "status_counts": {
+        "active": 1,
+        "eol_soon": 1,
+        "eol": 1
+      }
+    },
+    {
+      "id": "apache-httpd",
+      "label": "Apache HTTP Server",
+      "vendor": "Apache Software Foundation",
+      "category": "service",
+      "file": "products/apache-httpd.json",
+      "branch_count": 2,
+      "status_counts": {
+        "active": 1,
+        "eol_soon": 0,
+        "eol": 1
+      }
+    },
+    {
+      "id": "openssh",
+      "label": "OpenSSH",
+      "vendor": "OpenBSD",
+      "category": "service",
+      "file": "products/openssh.json",
+      "branch_count": 1,
+      "status_counts": {
+        "active": 1,
+        "eol_soon": 0,
+        "eol": 0
+      }
+    }
+  ],
+  "advisories": {
+    "file": "advisories.json",
+    "count": 11
+  },
+  "sources": [
+    {
+      "name": "endoflife",
+      "label": "endoflife.date",
+      "kind": "versions",
+      "status": "ok",
+      "count": 40,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-28T06:00:00Z",
+      "error": null,
+      "home": "https://endoflife.date",
+      "attribution": null
+    },
+    {
+      "name": "fortinet_firmware",
+      "label": "Fortinet firmware",
+      "kind": "versions",
+      "status": "ok",
+      "count": 12,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-28T06:00:00Z",
+      "error": null,
+      "home": "https://docs.fortinet.com",
+      "attribution": null
+    },
+    {
+      "name": "nginx",
+      "label": "nginx CHANGES",
+      "kind": "versions",
+      "status": "ok",
+      "count": 6,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-28T06:00:00Z",
+      "error": null,
+      "home": "https://nginx.org",
+      "attribution": null
+    },
+    {
+      "name": "openssh",
+      "label": "OpenSSH",
+      "kind": "versions",
+      "status": "ok",
+      "count": 5,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-28T06:00:00Z",
+      "error": null,
+      "home": "https://www.openssh.com",
+      "attribution": null
+    },
+    {
+      "name": "fortinet",
+      "label": "Fortinet PSIRT",
+      "kind": "advisories",
+      "status": "ok",
+      "count": 2,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-28T06:00:00Z",
+      "error": null,
+      "home": "https://www.fortiguard.com/psirt",
+      "attribution": null
+    },
+    {
+      "name": "paloalto",
+      "label": "Palo Alto Networks",
+      "kind": "advisories",
+      "status": "ok",
+      "count": 2,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-28T06:00:00Z",
+      "error": null,
+      "home": "https://security.paloaltonetworks.com",
+      "attribution": null
+    },
+    {
+      "name": "cisco",
+      "label": "Cisco PSIRT",
+      "kind": "advisories",
+      "status": "ok",
+      "count": 1,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-28T06:00:00Z",
+      "error": null,
+      "home": "https://sec.cloudapps.cisco.com/security/center/",
+      "attribution": "Contenu issu de Cisco Security Advisories, utilisé selon les conditions de Cisco."
+    },
+    {
+      "name": "certfr",
+      "label": "CERT-FR",
+      "kind": "advisories",
+      "status": "error",
+      "count": 4,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-27T18:00:00Z",
+      "error": "HTTP 503 (exemple de démonstration)",
+      "home": "https://www.cert.ssi.gouv.fr",
+      "attribution": null
+    },
+    {
+      "name": "debian",
+      "label": "Debian Security",
+      "kind": "advisories",
+      "status": "ok",
+      "count": 2,
+      "last_attempt": "2026-10-28T06:00:00Z",
+      "last_success": "2026-10-28T06:00:00Z",
+      "error": null,
+      "home": "https://www.debian.org/security/",
+      "attribution": null
+    }
+  ]
+}

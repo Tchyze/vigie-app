@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "product": "fortios",
+  "label": "FortiOS",
+  "vendor": "Fortinet",
+  "category": "firewall",
+  "branches": [
+    {
+      "id": "fortios-7.6",
+      "product": "fortios",
+      "vendor": "Fortinet",
+      "category": "firewall",
+      "branch": "7.6",
+      "label": "7.6",
+      "lts": null,
+      "release_date": "2024-07-25",
+      "status": "active",
+      "latest_version": "7.6.8",
+      "latest_release_date": "2026-10-14",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": "2028-01-25",
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": "2028-01-25",
+        "declared_eol": false,
+        "labels": {
+          "end_of_life": "End of Support"
+        },
+        "source_url": "https://endoflife.date/fortios"
+      },
+      "releases": [
+        {
+          "version": "7.6.8",
+          "date": "2026-10-14",
+          "security_fix": true,
+          "summary": "Corrige plusieurs vulnérabilités, dont une injection de commande dans l'interface d'administration.",
+          "url": "https://docs.fortinet.com/document/fortigate/7.6.8/fortios-release-notes"
+        },
+        {
+          "version": "7.6.7",
+          "date": "2026-08-20",
+          "security_fix": false,
+          "summary": "Corrections de stabilité (SD-WAN, VPN SSL).",
+          "url": "https://docs.fortinet.com/document/fortigate/7.6.7/fortios-release-notes"
+        },
+        {
+          "version": "7.6.6",
+          "date": "2026-06-30",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://docs.fortinet.com/document/fortigate/7.6.6/fortios-release-notes"
+        }
+      ],
+      "sources": [
+        "endoflife",
+        "fortinet_firmware"
+      ]
+    },
+    {
+      "id": "fortios-7.4",
+      "product": "fortios",
+      "vendor": "Fortinet",
+      "category": "firewall",
+      "branch": "7.4",
+      "label": "7.4",
+      "lts": null,
+      "release_date": "2023-05-11",
+      "status": "active",
+      "latest_version": "7.4.13",
+      "latest_release_date": "2026-10-21",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": "2027-11-11",
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": "2027-11-11",
+        "declared_eol": false,
+        "labels": {
+          "end_of_life": "End of Support"
+        },
+        "source_url": "https://endoflife.date/fortios"
+      },
+      "releases": [
+        {
+          "version": "7.4.13",
+          "date": "2026-10-21",
+          "security_fix": true,
+          "summary": "Corrige une vulnérabilité critique du VPN SSL.",
+          "url": "https://docs.fortinet.com/document/fortigate/7.4.13/fortios-release-notes"
+        },
+        {
+          "version": "7.4.12",
+          "date": "2026-08-05",
+          "security_fix": false,
+          "summary": "Corrections de bugs.",
+          "url": "https://docs.fortinet.com/document/fortigate/7.4.12/fortios-release-notes"
+        },
+        {
+          "version": "7.4.11",
+          "date": "2026-05-12",
+          "security_fix": null,
+          "summary": null,
+          "url": "https://docs.fortinet.com/document/fortigate/7.4.11/fortios-release-notes"
+        },
+        {
+          "version": "7.4.10",
+          "date": "2026-02-17",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://docs.fortinet.com/document/fortigate/7.4.10/fortios-release-notes"
+        },
+        {
+          "version": "7.4.9",
+          "date": "2025-11-04",
+          "security_fix": false,
+          "summary": null,
+          "url": "https://docs.fortinet.com/document/fortigate/7.4.9/fortios-release-notes"
+        },
+        {
+          "version": "7.4.8",
+          "date": "2025-07-01",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://docs.fortinet.com/document/fortigate/7.4.8/fortios-release-notes"
+        }
+      ],
+      "sources": [
+        "endoflife",
+        "fortinet_firmware"
+      ]
+    },
+    {
+      "id": "fortios-7.2",
+      "product": "fortios",
+      "vendor": "Fortinet",
+      "category": "firewall",
+      "branch": "7.2",
+      "label": "7.2",
+      "lts": null,
+      "release_date": "2022-03-31",
+      "status": "eol_soon",
+      "latest_version": "7.2.14",
+      "latest_release_date": "2026-09-09",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": "2027-03-31",
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": "2027-03-31",
+        "declared_eol": false,
+        "labels": {
+          "end_of_life": "End of Support"
+        },
+        "source_url": "https://endoflife.date/fortios"
+      },
+      "releases": [
+        {
+          "version": "7.2.14",
+          "date": "2026-09-09",
+          "security_fix": true,
+          "summary": "Dernières corrections de sécurité avant la fin de support.",
+          "url": "https://docs.fortinet.com/document/fortigate/7.2.14/fortios-release-notes"
+        },
+        {
+          "version": "7.2.13",
+          "date": "2026-05-26",
+          "security_fix": false,
+          "summary": null,
+          "url": "https://docs.fortinet.com/document/fortigate/7.2.13/fortios-release-notes"
+        }
+      ],
+      "sources": [
+        "endoflife",
+        "fortinet_firmware"
+      ]
+    },
+    {
+      "id": "fortios-7.0",
+      "product": "fortios",
+      "vendor": "Fortinet",
+      "category": "firewall",
+      "branch": "7.0",
+      "label": "7.0",
+      "lts": null,
+      "release_date": "2021-03-30",
+      "status": "eol",
+      "latest_version": "7.0.17",
+      "latest_release_date": "2025-08-12",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": "2026-09-30",
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": "2026-09-30",
+        "declared_eol": false,
+        "labels": {
+          "end_of_life": "End of Support"
+        },
+        "source_url": "https://endoflife.date/fortios"
+      },
+      "releases": [
+        {
+          "version": "7.0.17",
+          "date": "2025-08-12",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://docs.fortinet.com/document/fortigate/7.0.17/fortios-release-notes"
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    }
+  ]
+}

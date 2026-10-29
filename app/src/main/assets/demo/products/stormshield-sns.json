@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "product": "stormshield-sns",
+  "label": "Stormshield SNS",
+  "vendor": "Stormshield",
+  "category": "firewall",
+  "branches": [
+    {
+      "id": "stormshield-sns-5.0",
+      "product": "stormshield-sns",
+      "vendor": "Stormshield",
+      "category": "firewall",
+      "branch": "5.0",
+      "label": "5.0",
+      "lts": null,
+      "release_date": "2025-06-17",
+      "status": "active",
+      "latest_version": null,
+      "latest_release_date": null,
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": "2028-06-30",
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": "2028-06-30",
+        "declared_eol": false,
+        "labels": {
+          "end_of_life": "Fin de maintenance"
+        },
+        "source_url": "https://documentation.stormshield.eu/SNS/v5/fr/Content/PDF/Cycle_vie_produits/sns-cycle-vie-produits.pdf"
+      },
+      "releases": [],
+      "sources": [
+        "overrides"
+      ]
+    },
+    {
+      "id": "stormshield-sns-4.8",
+      "product": "stormshield-sns",
+      "vendor": "Stormshield",
+      "category": "firewall",
+      "branch": "4.8",
+      "label": "4.8 LTSB",
+      "lts": true,
+      "release_date": "2024-06-25",
+      "status": "active",
+      "latest_version": null,
+      "latest_release_date": null,
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": "2027-12-31",
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": "2027-12-31",
+        "declared_eol": false,
+        "labels": {
+          "end_of_life": "Fin de maintenance"
+        },
+        "source_url": "https://documentation.stormshield.eu/SNS/v5/fr/Content/PDF/Cycle_vie_produits/sns-cycle-vie-produits.pdf"
+      },
+      "releases": [],
+      "sources": [
+        "overrides"
+      ]
+    },
+    {
+      "id": "stormshield-sns-4.3",
+      "product": "stormshield-sns",
+      "vendor": "Stormshield",
+      "category": "firewall",
+      "branch": "4.3",
+      "label": "4.3 LTSB",
+      "lts": true,
+      "release_date": "2021-11-09",
+      "status": "eol",
+      "latest_version": null,
+      "latest_release_date": null,
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": "2025-12-31",
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": "2025-12-31",
+        "declared_eol": false,
+        "labels": {
+          "end_of_life": "Fin de maintenance"
+        },
+        "source_url": null
+      },
+      "releases": [],
+      "sources": [
+        "overrides"
+      ]
+    }
+  ]
+}

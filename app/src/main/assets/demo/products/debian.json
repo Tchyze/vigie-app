@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "product": "debian",
+  "label": "Debian",
+  "vendor": "Debian",
+  "category": "os",
+  "branches": [
+    {
+      "id": "debian-13",
+      "product": "debian",
+      "vendor": "Debian",
+      "category": "os",
+      "branch": "13",
+      "label": "13 (Trixie)",
+      "lts": null,
+      "release_date": "2025-08-09",
+      "status": "active",
+      "latest_version": "13.7",
+      "latest_release_date": "2026-09-13",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2028-08-09",
+        "end_of_life": "2030-06-30",
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": "2030-06-30",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Debian Security Support",
+          "end_of_life": "Debian LTS",
+          "end_of_extended_support": "ELTS"
+        },
+        "source_url": "https://endoflife.date/debian"
+      },
+      "releases": [
+        {
+          "version": "13.7",
+          "date": "2026-09-13",
+          "security_fix": true,
+          "summary": "Mise à jour de la distribution stable.",
+          "url": "https://www.debian.org/News/"
+        },
+        {
+          "version": "13.6",
+          "date": "2026-07-11",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://www.debian.org/News/"
+        },
+        {
+          "version": "13.5",
+          "date": "2026-05-09",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://www.debian.org/News/"
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    },
+    {
+      "id": "debian-12",
+      "product": "debian",
+      "vendor": "Debian",
+      "category": "os",
+      "branch": "12",
+      "label": "12 (Bookworm)",
+      "lts": null,
+      "release_date": "2023-06-10",
+      "status": "active",
+      "latest_version": "12.15",
+      "latest_release_date": "2026-09-13",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2026-06-10",
+        "end_of_life": "2028-06-30",
+        "end_of_extended_support": "2033-06-30",
+        "trigger": "end_of_life",
+        "trigger_date": "2028-06-30",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Debian Security Support",
+          "end_of_life": "Debian LTS",
+          "end_of_extended_support": "ELTS"
+        },
+        "source_url": "https://endoflife.date/debian"
+      },
+      "releases": [
+        {
+          "version": "12.15",
+          "date": "2026-09-13",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://www.debian.org/News/"
+        },
+        {
+          "version": "12.14",
+          "date": "2026-07-11",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://www.debian.org/News/"
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    },
+    {
+      "id": "debian-11",
+      "product": "debian",
+      "vendor": "Debian",
+      "category": "os",
+      "branch": "11",
+      "label": "11 (Bullseye)",
+      "lts": null,
+      "release_date": "2021-08-14",
+      "status": "eol",
+      "latest_version": "11.11",
+      "latest_release_date": "2024-08-31",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2024-08-14",
+        "end_of_life": "2026-08-31",
+        "end_of_extended_support": "2031-06-30",
+        "trigger": "end_of_life",
+        "trigger_date": "2026-08-31",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Debian Security Support",
+          "end_of_life": "Debian LTS",
+          "end_of_extended_support": "ELTS"
+        },
+        "source_url": "https://endoflife.date/debian"
+      },
+      "releases": [
+        {
+          "version": "11.11",
+          "date": "2024-08-31",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://www.debian.org/News/"
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    },
+    {
+      "id": "debian-10",
+      "product": "debian",
+      "vendor": "Debian",
+      "category": "os",
+      "branch": "10",
+      "label": "10 (Buster)",
+      "lts": null,
+      "release_date": "2019-07-06",
+      "status": "eol",
+      "latest_version": "10.13",
+      "latest_release_date": "2022-09-10",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2022-09-10",
+        "end_of_life": "2024-06-30",
+        "end_of_extended_support": "2029-06-30",
+        "trigger": "end_of_life",
+        "trigger_date": "2024-06-30",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "Debian Security Support",
+          "end_of_life": "Debian LTS",
+          "end_of_extended_support": "ELTS"
+        },
+        "source_url": "https://endoflife.date/debian"
+      },
+      "releases": [
+        {
+          "version": "10.13",
+          "date": "2022-09-10",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://www.debian.org/News/"
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    }
+  ]
+}

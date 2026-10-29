@@ -21,6 +21,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import fr.tchyze.vigie.VigieApp
 
 private data class Tab(val label: String, val icon: ImageVector)
 
@@ -49,7 +53,27 @@ fun VigieRoot() {
         },
     ) { padding ->
         Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
-            Text("${tabs[selected].label} : à venir")
+            if (selected == 0) DataSummary() else Text("${tabs[selected].label} : à venir")
         }
     }
+}
+
+/** Résumé provisoire des données chargées (remplacé par le fil à l'étape suivante). */
+@Composable
+private fun DataSummary() {
+    val app = LocalContext.current.applicationContext as VigieApp
+    val state by app.container.repository.state.collectAsStateWithLifecycle()
+    val snapshot = state.snapshot
+    val text = when {
+        state.loading -> "Chargement…"
+        state.error != null -> state.error!!.message
+        snapshot == null -> "Aucune donnée"
+        else -> buildString {
+            appendLine(if (state.demo) "Données de démonstration" else "Données du ${state.fetchedAt}")
+            appendLine("Générées le ${snapshot.index.generatedAt}")
+            appendLine("${snapshot.products.size} produits, ${snapshot.branches.size} branches")
+            append("${snapshot.advisories.advisories.size} avis de sécurité")
+        }
+    }
+    Text(text, modifier = Modifier.padding(24.dp))
 }

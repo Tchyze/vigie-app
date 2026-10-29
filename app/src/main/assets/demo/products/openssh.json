@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "product": "openssh",
+  "label": "OpenSSH",
+  "vendor": "OpenBSD",
+  "category": "service",
+  "branches": [
+    {
+      "id": "openssh-portable",
+      "product": "openssh",
+      "vendor": "OpenBSD",
+      "category": "service",
+      "branch": "portable",
+      "label": "Portable",
+      "lts": null,
+      "release_date": null,
+      "status": "active",
+      "latest_version": "10.2p1",
+      "latest_release_date": "2026-10-09",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_life",
+        "trigger_date": null,
+        "declared_eol": false,
+        "labels": {},
+        "source_url": null
+      },
+      "releases": [
+        {
+          "version": "10.2p1",
+          "date": "2026-10-09",
+          "security_fix": true,
+          "summary": "Corrige une vulnérabilité de ssh-agent.",
+          "url": "https://www.openssh.com/releasenotes.html"
+        },
+        {
+          "version": "10.1p1",
+          "date": "2026-04-02",
+          "security_fix": false,
+          "summary": null,
+          "url": "https://www.openssh.com/releasenotes.html"
+        },
+        {
+          "version": "10.0p2",
+          "date": "2025-04-18",
+          "security_fix": null,
+          "summary": null,
+          "url": "https://www.openssh.com/releasenotes.html"
+        },
+        {
+          "version": "9.9p2",
+          "date": "2025-02-18",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://www.openssh.com/releasenotes.html"
+        },
+        {
+          "version": "9.1p1",
+          "date": "2022-10-04",
+          "security_fix": false,
+          "summary": null,
+          "url": "https://www.openssh.com/releasenotes.html"
+        }
+      ],
+      "sources": [
+        "openssh"
+      ]
+    }
+  ]
+}

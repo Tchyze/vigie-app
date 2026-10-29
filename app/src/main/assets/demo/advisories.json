@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "retention_days": 365,
+  "advisories": [
+    {
+      "id": "CERTFR-2026-AVI-1433",
+      "source": "certfr",
+      "vendor": "CERT-FR",
+      "title": "Multiples vulnérabilités dans GitLab",
+      "published": "2026-10-23T08:00:00Z",
+      "updated": null,
+      "severity": null,
+      "cvss": null,
+      "cves": [
+        "CVE-2026-90950"
+      ],
+      "url": "https://www.cert.ssi.gouv.fr/avis/",
+      "summary": "Exemple de démonstration : produit non suivi par Vigie.",
+      "affected": [],
+      "attribution": null
+    },
+    {
+      "id": "FG-IR-26-152",
+      "source": "fortinet",
+      "vendor": "Fortinet",
+      "title": "FortiOS - Dépassement de tampon dans le VPN SSL",
+      "published": "2026-10-21T16:00:00Z",
+      "updated": "2026-10-23T09:00:00Z",
+      "severity": "high",
+      "cvss": 8.1,
+      "cves": [
+        "CVE-2026-90152",
+        "CVE-2026-90153"
+      ],
+      "url": "https://www.fortiguard.com/psirt",
+      "summary": null,
+      "affected": [],
+      "attribution": null
+    },
+    {
+      "id": "CERTFR-2026-AVI-1381",
+      "source": "certfr",
+      "vendor": "CERT-FR",
+      "title": "Multiples vulnérabilités dans Fortinet FortiOS",
+      "published": "2026-10-15T13:30:00Z",
+      "updated": null,
+      "severity": null,
+      "cvss": null,
+      "cves": [
+        "CVE-2026-90187"
+      ],
+      "url": "https://www.cert.ssi.gouv.fr/avis/",
+      "summary": "Exemple de démonstration : avis CERT-FR reprenant FG-IR-26-187.",
+      "affected": [],
+      "attribution": null
+    },
+    {
+      "id": "CERTFR-2026-AVI-1420",
+      "source": "certfr",
+      "vendor": "CERT-FR",
+      "title": "Multiples vulnérabilités dans les produits Microsoft Windows",
+      "published": "2026-10-15T08:00:00Z",
+      "updated": null,
+      "severity": null,
+      "cvss": null,
+      "cves": [
+        "CVE-2026-90901",
+        "CVE-2026-90902"
+      ],
+      "url": "https://www.cert.ssi.gouv.fr/avis/",
+      "summary": null,
+      "affected": [],
+      "attribution": null
+    },
+    {
+      "id": "FG-IR-26-187",
+      "source": "fortinet",
+      "vendor": "Fortinet",
+      "title": "FortiOS - Injection de commande dans l'interface d'administration",
+      "published": "2026-10-14T16:00:00Z",
+      "updated": null,
+      "severity": "critical",
+      "cvss": 9.6,
+      "cves": [
+        "CVE-2026-90187"
+      ],
+      "url": "https://www.fortiguard.com/psirt",
+      "summary": "Exemple de démonstration : un attaquant non authentifié peut exécuter des commandes via des requêtes HTTP forgées.",
+      "affected": [],
+      "attribution": null
+    },
+    {
+      "id": "DSA-6592-1",
+      "source": "debian",
+      "vendor": "Debian",
+      "title": "openssh - security update",
+      "published": "2026-10-10T19:00:00Z",
+      "updated": null,
+      "severity": "high",
+      "cvss": null,
+      "cves": [
+        "CVE-2026-90592"
+      ],
+      "url": "https://www.debian.org/security/",
+      "summary": null,
+      "affected": [
+        "debian-12",
+        "debian-13"
+      ],
+      "attribution": null
+    },
+    {
+      "id": "PAN-SA-2026-0021",
+      "source": "paloalto",
+      "vendor": "Palo Alto Networks",
+      "title": "PAN-OS: Authentication Bypass in the Management Web Interface",
+      "published": "2026-10-08T17:00:00Z",
+      "updated": null,
+      "severity": "high",
+      "cvss": 7.8,
+      "cves": [
+        "CVE-2026-90021"
+      ],
+      "url": "https://security.paloaltonetworks.com/",
+      "summary": "Exemple de démonstration.",
+      "affected": [
+        "panos-11.1",
+        "panos-12.1"
+      ],
+      "attribution": null
+    },
+    {
+      "id": "cisco-sa-iosxe-webui-demo26",
+      "source": "cisco",
+      "vendor": "Cisco",
+      "title": "Cisco IOS XE Software Web UI Privilege Escalation Vulnerability",
+      "published": "2026-09-24T16:00:00Z",
+      "updated": null,
+      "severity": "high",
+      "cvss": 8.8,
+      "cves": [
+        "CVE-2026-90224"
+      ],
+      "url": "https://sec.cloudapps.cisco.com/security/center/publicationListing.x",
+      "summary": "Exemple de démonstration.",
+      "affected": [],
+      "attribution": "Contenu issu de Cisco Security Advisories, utilisé selon les conditions de Cisco."
+    },
+    {
+      "id": "CERTFR-2026-AVI-1402",
+      "source": "certfr",
+      "vendor": "CERT-FR",
+      "title": "Vulnérabilité dans nginx",
+      "published": "2026-09-16T12:00:00Z",
+      "updated": null,
+      "severity": null,
+      "cvss": null,
+      "cves": [
+        "CVE-2026-90777"
+      ],
+      "url": "https://www.cert.ssi.gouv.fr/avis/",
+      "summary": null,
+      "affected": [],
+      "attribution": null
+    },
+    {
+      "id": "PAN-SA-2026-0019",
+      "source": "paloalto",
+      "vendor": "Palo Alto Networks",
+      "title": "PAN-OS: Denial of Service in GlobalProtect",
+      "published": "2026-09-10T17:00:00Z",
+      "updated": null,
+      "severity": "medium",
+      "cvss": 5.9,
+      "cves": [
+        "CVE-2026-90019"
+      ],
+      "url": "https://security.paloaltonetworks.com/",
+      "summary": null,
+      "affected": [
+        "panos-11.2",
+        "panos-10.2"
+      ],
+      "attribution": null
+    },
+    {
+      "id": "DSA-6570-1",
+      "source": "debian",
+      "vendor": "Debian",
+      "title": "linux - security update",
+      "published": "2026-09-02T19:00:00Z",
+      "updated": null,
+      "severity": "medium",
+      "cvss": null,
+      "cves": [
+        "CVE-2026-90570",
+        "CVE-2026-90571"
+      ],
+      "url": "https://www.debian.org/security/",
+      "summary": null,
+      "affected": [
+        "debian-12"
+      ],
+      "attribution": null
+    }
+  ]
+}

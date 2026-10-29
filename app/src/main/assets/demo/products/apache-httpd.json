@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "product": "apache-httpd",
+  "label": "Apache HTTP Server",
+  "vendor": "Apache Software Foundation",
+  "category": "service",
+  "branches": [
+    {
+      "id": "apache-httpd-2.4",
+      "product": "apache-httpd",
+      "vendor": "Apache Software Foundation",
+      "category": "service",
+      "branch": "2.4",
+      "label": "2.4",
+      "lts": null,
+      "release_date": "2012-02-21",
+      "status": "active",
+      "latest_version": "2.4.69",
+      "latest_release_date": "2026-10-01",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": null,
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": null,
+        "declared_eol": false,
+        "labels": {},
+        "source_url": "https://httpd.apache.org/"
+      },
+      "releases": [
+        {
+          "version": "2.4.69",
+          "date": "2026-10-01",
+          "security_fix": true,
+          "summary": "Corrige deux vulnérabilités de mod_proxy.",
+          "url": "https://downloads.apache.org/httpd/CHANGES_2.4"
+        },
+        {
+          "version": "2.4.68",
+          "date": "2026-07-08",
+          "security_fix": false,
+          "summary": null,
+          "url": "https://downloads.apache.org/httpd/CHANGES_2.4"
+        },
+        {
+          "version": "2.4.67",
+          "date": "2026-04-01",
+          "security_fix": true,
+          "summary": null,
+          "url": "https://downloads.apache.org/httpd/CHANGES_2.4"
+        }
+      ],
+      "sources": [
+        "endoflife",
+        "apache_httpd"
+      ]
+    },
+    {
+      "id": "apache-httpd-2.2",
+      "product": "apache-httpd",
+      "vendor": "Apache Software Foundation",
+      "category": "service",
+      "branch": "2.2",
+      "label": "2.2",
+      "lts": null,
+      "release_date": "2005-12-01",
+      "status": "eol",
+      "latest_version": "2.2.34",
+      "latest_release_date": "2017-07-11",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2017-07-01",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2017-07-01",
+        "declared_eol": true,
+        "labels": {},
+        "source_url": "https://httpd.apache.org/"
+      },
+      "releases": [
+        {
+          "version": "2.2.34",
+          "date": "2017-07-11",
+          "security_fix": true,
+          "summary": null,
+          "url": null
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    }
+  ]
+}

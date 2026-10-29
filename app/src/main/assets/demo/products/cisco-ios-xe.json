@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28T06:00:00Z",
+  "product": "cisco-ios-xe",
+  "label": "Cisco IOS XE",
+  "vendor": "Cisco",
+  "category": "switch",
+  "branches": [
+    {
+      "id": "cisco-ios-xe-17.18",
+      "product": "cisco-ios-xe",
+      "vendor": "Cisco",
+      "category": "switch",
+      "branch": "17.18",
+      "label": "17.18",
+      "lts": null,
+      "release_date": "2025-12-05",
+      "status": "active",
+      "latest_version": "17.18.2",
+      "latest_release_date": "2026-09-30",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2028-12-05",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2028-12-05",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "End of Vulnerability/Security Support"
+        },
+        "source_url": "https://endoflife.date/cisco-ios-xe"
+      },
+      "releases": [
+        {
+          "version": "17.18.2",
+          "date": "2026-09-30",
+          "security_fix": null,
+          "summary": null,
+          "url": "https://www.cisco.com/c/en/us/support/ios-nx-os-software/ios-xe-17/products-release-notes-list.html"
+        },
+        {
+          "version": "17.18.1a",
+          "date": "2026-06-12",
+          "security_fix": true,
+          "summary": null,
+          "url": null
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    },
+    {
+      "id": "cisco-ios-xe-17.15",
+      "product": "cisco-ios-xe",
+      "vendor": "Cisco",
+      "category": "switch",
+      "branch": "17.15",
+      "label": "17.15 (Extended)",
+      "lts": true,
+      "release_date": "2024-08-12",
+      "status": "active",
+      "latest_version": "17.15.4",
+      "latest_release_date": "2026-08-21",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2028-02-12",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2028-02-12",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "End of Vulnerability/Security Support"
+        },
+        "source_url": "https://endoflife.date/cisco-ios-xe"
+      },
+      "releases": [
+        {
+          "version": "17.15.4",
+          "date": "2026-08-21",
+          "security_fix": true,
+          "summary": "Corrige plusieurs avis de sécurité Cisco publiés en 2026.",
+          "url": null
+        },
+        {
+          "version": "17.15.3a",
+          "date": "2026-04-10",
+          "security_fix": false,
+          "summary": null,
+          "url": null
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    },
+    {
+      "id": "cisco-ios-xe-17.12",
+      "product": "cisco-ios-xe",
+      "vendor": "Cisco",
+      "category": "switch",
+      "branch": "17.12",
+      "label": "17.12 (Extended)",
+      "lts": true,
+      "release_date": "2023-08-03",
+      "status": "eol_soon",
+      "latest_version": null,
+      "latest_release_date": null,
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2027-02-03",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2027-02-03",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "End of Vulnerability/Security Support"
+        },
+        "source_url": "https://endoflife.date/cisco-ios-xe"
+      },
+      "releases": [],
+      "sources": [
+        "endoflife"
+      ]
+    },
+    {
+      "id": "cisco-ios-xe-17.9",
+      "product": "cisco-ios-xe",
+      "vendor": "Cisco",
+      "category": "switch",
+      "branch": "17.9",
+      "label": "17.9 (Extended)",
+      "lts": true,
+      "release_date": "2022-08-01",
+      "status": "eol",
+      "latest_version": "17.9.7",
+      "latest_release_date": "2025-06-30",
+      "eol": {
+        "end_of_active_support": null,
+        "end_of_security_support": "2025-12-01",
+        "end_of_life": null,
+        "end_of_extended_support": null,
+        "trigger": "end_of_security_support",
+        "trigger_date": "2025-12-01",
+        "declared_eol": false,
+        "labels": {
+          "end_of_security_support": "End of Vulnerability/Security Support"
+        },
+        "source_url": "https://endoflife.date/cisco-ios-xe"
+      },
+      "releases": [
+        {
+          "version": "17.9.7",
+          "date": "2025-06-30",
+          "security_fix": null,
+          "summary": null,
+          "url": null
+        }
+      ],
+      "sources": [
+        "endoflife"
+      ]
+    }
+  ]
+}
