@@ -14,7 +14,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Card
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -23,6 +30,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -42,12 +52,25 @@ import fr.tchyze.vigie.ui.common.formatDate
 @Composable
 fun FeedScreen(
     onOpenBranch: (String) -> Unit,
-    viewModel: FeedViewModel = viewModel(factory = containerFactory { FeedViewModel(it.repository) }),
+    onOpenFollow: () -> Unit,
+    viewModel: FeedViewModel = viewModel(factory = containerFactory { FeedViewModel(it.repository, it.follows) }),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    var menuOpen by remember { mutableStateOf(false) }
 
     Column(Modifier.fillMaxSize()) {
-        TopAppBar(title = { Text("Vigie") })
+        TopAppBar(
+            title = { Text("Vigie") },
+            actions = {
+                IconButton(onClick = { menuOpen = true }) { Icon(Icons.Filled.MoreVert, contentDescription = "Menu") }
+                DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                    DropdownMenuItem(
+                        text = { Text("Technologies suivies") },
+                        onClick = { menuOpen = false; onOpenFollow() },
+                    )
+                }
+            },
+        )
         PullToRefreshBox(
             isRefreshing = state.data.refreshing,
             onRefresh = viewModel::refresh,
@@ -63,11 +86,13 @@ fun FeedScreen(
                     item { DataBanner(state.data) }
                     if (state.showingAll && state.items.isNotEmpty()) {
                         item {
-                            Text(
-                                "Vous ne suivez encore aucune technologie : toutes les branches supportées sont affichées.",
-                                style = MaterialTheme.typography.bodyMedium,
-                                modifier = Modifier.padding(horizontal = 16.dp),
-                            )
+                            Column(Modifier.padding(horizontal = 16.dp)) {
+                                Text(
+                                    "Vous ne suivez encore aucune technologie : toutes les branches supportées sont affichées.",
+                                    style = MaterialTheme.typography.bodyMedium,
+                                )
+                                TextButton(onClick = onOpenFollow) { Text("Choisir les technologies suivies") }
+                            }
                         }
                     }
                     if (state.items.isEmpty()) {
@@ -76,7 +101,7 @@ fun FeedScreen(
                                 if (state.data.snapshot == null) {
                                     "Aucune donnée. Tirez vers le bas pour actualiser."
                                 } else {
-                                    "Aucune branche à afficher."
+                                    "Aucune branche supportée parmi les technologies suivies."
                                 },
                                 modifier = Modifier.padding(16.dp),
                             )

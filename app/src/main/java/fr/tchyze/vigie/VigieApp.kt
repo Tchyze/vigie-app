@@ -1,7 +1,9 @@
 package fr.tchyze.vigie
 
 import android.app.Application
+import fr.tchyze.vigie.data.FollowRepository
 import fr.tchyze.vigie.data.VigieRepository
+import fr.tchyze.vigie.data.db.VigieDatabase
 import fr.tchyze.vigie.data.cache.DataCache
 import fr.tchyze.vigie.data.settings.SettingsRepository
 import fr.tchyze.vigie.data.source.AssetFileSource
@@ -26,6 +28,10 @@ class AppContainer(app: Application) {
     val appScope = CoroutineScope(SupervisorJob())
 
     val settings = SettingsRepository(app)
+
+    val database = VigieDatabase.create(app)
+
+    val follows = FollowRepository(database.followDao())
 
     private val httpClient by lazy {
         HttpFileSource.createClient("Vigie-Android/${BuildConfig.VERSION_NAME}")

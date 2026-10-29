@@ -32,6 +32,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import fr.tchyze.vigie.ui.branch.BranchScreen
 import fr.tchyze.vigie.ui.feed.FeedScreen
+import fr.tchyze.vigie.ui.follow.FollowScreen
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
 
@@ -40,6 +41,7 @@ import kotlin.reflect.KClass
 @Serializable data object AdvisoriesRoute
 @Serializable data object SettingsRoute
 @Serializable data class BranchRoute(val id: String)
+@Serializable data object FollowRoute
 
 private data class Tab(val label: String, val icon: ImageVector, val route: Any, val type: KClass<*>)
 
@@ -78,7 +80,13 @@ fun VigieRoot() {
         },
     ) { padding ->
         NavHost(nav, startDestination = FeedRoute, modifier = Modifier.padding(padding)) {
-            composable<FeedRoute> { FeedScreen(onOpenBranch = { nav.navigate(BranchRoute(it)) }) }
+            composable<FeedRoute> {
+                FeedScreen(
+                    onOpenBranch = { nav.navigate(BranchRoute(it)) },
+                    onOpenFollow = { nav.navigate(FollowRoute) },
+                )
+            }
+            composable<FollowRoute> { FollowScreen(onBack = { nav.popBackStack() }) }
             composable<BranchRoute> { entry ->
                 BranchScreen(branchId = entry.toRoute<BranchRoute>().id, onBack = { nav.popBackStack() })
             }
