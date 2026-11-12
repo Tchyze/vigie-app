@@ -33,6 +33,8 @@ import androidx.navigation.toRoute
 import fr.tchyze.vigie.ui.branch.BranchScreen
 import fr.tchyze.vigie.ui.feed.FeedScreen
 import fr.tchyze.vigie.ui.follow.FollowScreen
+import fr.tchyze.vigie.ui.inventory.DeviceEditScreen
+import fr.tchyze.vigie.ui.inventory.InventoryScreen
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
 
@@ -42,6 +44,9 @@ import kotlin.reflect.KClass
 @Serializable data object SettingsRoute
 @Serializable data class BranchRoute(val id: String)
 @Serializable data object FollowRoute
+
+/** Équipement de l'inventaire ; `id = 0` pour en créer un. */
+@Serializable data class DeviceRoute(val id: Long = 0)
 
 private data class Tab(val label: String, val icon: ImageVector, val route: Any, val type: KClass<*>)
 
@@ -90,7 +95,19 @@ fun VigieRoot() {
             composable<BranchRoute> { entry ->
                 BranchScreen(branchId = entry.toRoute<BranchRoute>().id, onBack = { nav.popBackStack() })
             }
-            composable<InventoryRoute> { Placeholder("Inventaire") }
+            composable<InventoryRoute> {
+                InventoryScreen(
+                    onAdd = { nav.navigate(DeviceRoute()) },
+                    onOpenDevice = { nav.navigate(DeviceRoute(it)) },
+                )
+            }
+            composable<DeviceRoute> { entry ->
+                DeviceEditScreen(
+                    deviceId = entry.toRoute<DeviceRoute>().id,
+                    onBack = { nav.popBackStack() },
+                    onOpenBranch = { nav.navigate(BranchRoute(it)) },
+                )
+            }
             composable<AdvisoriesRoute> { Placeholder("Avis de sécurité") }
             composable<SettingsRoute> { Placeholder("Réglages") }
         }

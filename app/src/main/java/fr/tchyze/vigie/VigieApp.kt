@@ -2,6 +2,7 @@ package fr.tchyze.vigie
 
 import android.app.Application
 import fr.tchyze.vigie.data.FollowRepository
+import fr.tchyze.vigie.data.InventoryRepository
 import fr.tchyze.vigie.data.VigieRepository
 import fr.tchyze.vigie.data.db.VigieDatabase
 import fr.tchyze.vigie.data.cache.DataCache
@@ -32,6 +33,8 @@ class AppContainer(app: Application) {
     val database = VigieDatabase.create(app)
 
     val follows = FollowRepository(database.followDao())
+
+    val inventory = InventoryRepository(database.deviceDao())
 
     private val httpClient by lazy {
         HttpFileSource.createClient("Vigie-Android/${BuildConfig.VERSION_NAME}")
