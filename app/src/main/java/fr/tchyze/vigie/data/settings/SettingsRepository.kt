@@ -16,6 +16,8 @@ data class Settings(
     val refreshHours: Int = DEFAULT_REFRESH_HOURS,
     /** Activé par défaut tant que le collecteur n'est pas publié. */
     val demoMode: Boolean = true,
+    /** Notifier les nouvelles versions, avis et fins de support des technologies suivies. */
+    val notifications: Boolean = true,
 ) {
     companion object {
         const val DEFAULT_BASE_URL = "https://tchyze.github.io/vigie-collector/"
@@ -38,15 +40,19 @@ class SettingsRepository(private val context: Context) {
 
     suspend fun setDemoMode(enabled: Boolean) = context.dataStore.edit { it[DEMO_MODE] = enabled }
 
+    suspend fun setNotifications(enabled: Boolean) = context.dataStore.edit { it[NOTIFICATIONS] = enabled }
+
     private fun Preferences.toSettings() = Settings(
         baseUrl = this[BASE_URL]?.takeIf { it.isNotBlank() } ?: Settings.DEFAULT_BASE_URL,
         refreshHours = this[REFRESH_HOURS] ?: Settings.DEFAULT_REFRESH_HOURS,
         demoMode = this[DEMO_MODE] ?: true,
+        notifications = this[NOTIFICATIONS] ?: true,
     )
 
     private companion object {
         val BASE_URL = stringPreferencesKey("base_url")
         val REFRESH_HOURS = intPreferencesKey("refresh_hours")
         val DEMO_MODE = booleanPreferencesKey("demo_mode")
+        val NOTIFICATIONS = booleanPreferencesKey("notifications")
     }
 }

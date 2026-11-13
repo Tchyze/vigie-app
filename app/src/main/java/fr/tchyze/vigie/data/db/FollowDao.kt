@@ -14,6 +14,9 @@ interface FollowDao {
     @Query("SELECT branch_id FROM followed_branch")
     fun branches(): Flow<List<String>>
 
+    @Query("SELECT * FROM followed_branch")
+    suspend fun allBranches(): List<FollowedBranch>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertProduct(product: FollowedProduct)
 

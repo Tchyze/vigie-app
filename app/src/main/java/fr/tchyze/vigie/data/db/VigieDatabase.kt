@@ -13,6 +13,10 @@ import androidx.room.RoomDatabase
 abstract class VigieDatabase : RoomDatabase() {
     abstract fun followDao(): FollowDao
 
+    abstract fun deviceDao(): DeviceDao
+
+    abstract fun notifiedDao(): NotifiedDao
+
     companion object {
         fun create(context: Context): VigieDatabase =
             Room.databaseBuilder(context, VigieDatabase::class.java, "vigie.db").build()

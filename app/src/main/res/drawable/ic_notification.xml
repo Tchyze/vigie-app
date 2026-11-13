@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icône monochrome de notification : l'œil de l'icône de l'application. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12,5C7,5 3.4,8.6 2,12C3.4,15.4 7,19 12,19C17,19 20.6,15.4 22,12C20.6,8.6 17,5 12,5ZM12,16.5A4.5,4.5 0,1 1,12 7.5A4.5,4.5 0,1 1,12 16.5ZM12,10A2,2 0,1 0,12 14A2,2 0,1 0,12 10Z" />
+</vector>
