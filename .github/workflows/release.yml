@@ -1,9 +1,22 @@
 name: Publication d'une version
 
-# Un tag poussé (par exemple 0.1.0-beta) construit l'APK signé et publie la version sur GitHub.
+# Publie une version sur GitHub : tests, APK release signé, version (pré-version si le tag a un tiret).
+# Deux déclencheurs :
+# - pousser un tag (par exemple 0.1.0-beta) ;
+# - lancer le workflow à la main (onglet Actions, « Run workflow », aussi depuis l'appli mobile) avec
+#   le nom du tag : le tag est alors créé sur le commit de la branche choisie.
 on:
   push:
     tags: ["*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag de la version (doit être égal à versionName, par exemple 0.1.0-beta)"
+        required: true
+        type: string
+
+env:
+  TAG: ${{ inputs.tag || github.ref_name }}
 
 permissions:
   contents: write
@@ -21,6 +34,14 @@ jobs:
           java-version: "17"
 
       - uses: gradle/actions/setup-gradle@v6
+
+      - name: Cohérence du tag et de la version
+        run: |
+          version=$(sed -n 's/.*versionName = "\(.*\)".*/\1/p' app/build.gradle.kts)
+          if [ "$version" != "$TAG" ]; then
+            echo "::error::Le tag $TAG ne correspond pas à versionName ($version) dans app/build.gradle.kts."
+            exit 1
+          fi
 
       # Clé de signature : secret VIGIE_KEYSTORE_BASE64 (keystore encodé en base64) et mots de passe.
       # Sans ce secret, l'APK est signé avec la clé debug du runner (voir README).
@@ -50,7 +71,6 @@ jobs:
       - name: Publication sur GitHub
         env:
           GH_TOKEN: ${{ github.token }}
-          TAG: ${{ github.ref_name }}
         run: |
           apk="vigie-$TAG.apk"
           cp app/build/outputs/apk/release/app-release.apk "$apk"
@@ -60,4 +80,6 @@ jobs:
           notes="docs/release-notes/$TAG.md"
           [ -f "$notes" ] || { echo "Version $TAG de Vigie." > "$RUNNER_TEMP/notes.md"; notes="$RUNNER_TEMP/notes.md"; }
           printf '\n---\n%s\n\nEmpreinte SHA-256 : `%s`\n' "$SIGNATURE" "$(cut -d' ' -f1 "$apk.sha256")" >> "$notes"
-          gh release create "$TAG" "$apk" "$apk.sha256" --title "Vigie $TAG" --notes-file "$notes" $prerelease --verify-tag
+          # Tag poussé : il existe déjà. Lancement manuel : GitHub crée le tag sur le commit construit.
+          if [ "$GITHUB_EVENT_NAME" = "push" ]; then target="--verify-tag"; else target="--target $GITHUB_SHA"; fi
+          gh release create "$TAG" "$apk" "$apk.sha256" --title "Vigie $TAG" --notes-file "$notes" $prerelease $target

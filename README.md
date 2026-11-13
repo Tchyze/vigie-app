@@ -138,6 +138,10 @@ version marquée « pré-version » si le tag contient un tiret (`0.1.0-beta`). 
 git tag 0.1.0-beta && git push origin 0.1.0-beta
 ```
 
+Sans ordinateur (par exemple depuis l'appli mobile GitHub) : onglet *Actions* › *Publication d'une
+version* › *Run workflow* sur `main`, avec le nom du tag. Le workflow crée alors le tag lui-même.
+Dans les deux cas, le tag doit être égal à `versionName`, sinon la publication s'arrête.
+
 ### Clé de signature
 
 Pour que les versions successives s'installent par-dessus les précédentes, elles doivent être
