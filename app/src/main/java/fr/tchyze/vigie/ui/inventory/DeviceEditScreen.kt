@@ -82,94 +82,8 @@ fun DeviceEditScreen(
         )
         if (form == null) {
             Box(Modifier.fillMaxSize(), Alignment.Center) { CircularProgressIndicator() }
-            return@Column
-        }
-
-        val product = catalog.product(form.productId)
-        val branches = catalog.branches(form.productId)
-        val branch = catalog.branch(form.branchId)
-
-        Column(
-            Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            OutlinedTextField(
-                value = form.name,
-                onValueChange = viewModel::setName,
-                label = { Text("Nom") },
-                placeholder = { Text("fw-siege-01") },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
-                modifier = Modifier.fillMaxWidth(),
-            )
-            OutlinedTextField(
-                value = form.site,
-                onValueChange = viewModel::setSite,
-                label = { Text("Site (facultatif)") },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(
-                    capitalization = KeyboardCapitalization.Sentences,
-                    imeAction = ImeAction.Next,
-                ),
-                modifier = Modifier.fillMaxWidth(),
-            )
-
-            Picker(
-                label = "Produit",
-                value = product?.let { "${it.label} (${it.vendor})" } ?: form.productId.orEmpty(),
-                options = catalog.products.map { it.product to "${it.label} (${it.vendor})" },
-                onSelect = viewModel::selectProduct,
-                enabled = catalog.products.isNotEmpty(),
-            )
-            if (catalog.products.isEmpty()) {
-                Text(
-                    "Aucune donnée chargée : actualisez depuis le fil pour choisir un produit.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error,
-                )
-            }
-
-            Picker(
-                label = "Branche",
-                value = branch?.label ?: form.branchId.orEmpty(),
-                options = branches.map { it.branch.id to branchLabel(it) },
-                onSelect = viewModel::selectBranch,
-                enabled = branches.isNotEmpty(),
-            )
-            if (branch != null) {
-                TextButton(onClick = { onOpenBranch(branch.id) }) { Text("Voir la branche") }
-            }
-
-            OutlinedTextField(
-                value = form.version,
-                onValueChange = viewModel::setVersion,
-                label = { Text("Version installée") },
-                placeholder = { branch?.latestVersion?.let { Text(it) } },
-                supportingText = {
-                    val latest = branch?.latestVersion
-                    if (latest != null) Text("Dernière version publiée : $latest (${formatDate(branch?.latestReleaseDate)})")
-                },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-                modifier = Modifier.fillMaxWidth(),
-            )
-            val recent = branch?.releases.orEmpty().take(VERSION_SUGGESTIONS)
-            if (recent.isNotEmpty()) {
-                FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    recent.forEach { release ->
-                        SuggestionChip(
-                            onClick = { viewModel.setVersion(release.version) },
-                            label = { Text(release.version) },
-                        )
-                    }
-                }
-            }
-
-            Button(
-                onClick = viewModel::save,
-                enabled = form.valid,
-                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-            ) { Text("Enregistrer") }
+        } else {
+            DeviceFormContent(form, catalog, viewModel, onOpenBranch)
         }
     }
 
@@ -183,6 +97,101 @@ fun DeviceEditScreen(
             },
             dismissButton = { TextButton(onClick = { confirmDelete = false }) { Text("Annuler") } },
         )
+    }
+}
+
+@Composable
+private fun DeviceFormContent(
+    form: DeviceForm,
+    catalog: DeviceCatalog,
+    viewModel: DeviceEditViewModel,
+    onOpenBranch: (String) -> Unit,
+) {
+    val product = catalog.product(form.productId)
+    val branches = catalog.branches(form.productId)
+    val branch = catalog.branch(form.branchId)
+
+    Column(
+        Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        OutlinedTextField(
+            value = form.name,
+            onValueChange = viewModel::setName,
+            label = { Text("Nom") },
+            placeholder = { Text("fw-siege-01") },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+            modifier = Modifier.fillMaxWidth(),
+        )
+        OutlinedTextField(
+            value = form.site,
+            onValueChange = viewModel::setSite,
+            label = { Text("Site (facultatif)") },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(
+                capitalization = KeyboardCapitalization.Sentences,
+                imeAction = ImeAction.Next,
+            ),
+            modifier = Modifier.fillMaxWidth(),
+        )
+
+        Picker(
+            label = "Produit",
+            value = product?.let { "${it.label} (${it.vendor})" } ?: form.productId.orEmpty(),
+            options = catalog.products.map { it.product to "${it.label} (${it.vendor})" },
+            onSelect = viewModel::selectProduct,
+            enabled = catalog.products.isNotEmpty(),
+        )
+        if (catalog.products.isEmpty()) {
+            Text(
+                "Aucune donnée chargée : actualisez depuis le fil pour choisir un produit.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.error,
+            )
+        }
+
+        Picker(
+            label = "Branche",
+            value = branch?.label ?: form.branchId.orEmpty(),
+            options = branches.map { it.branch.id to branchLabel(it) },
+            onSelect = viewModel::selectBranch,
+            enabled = branches.isNotEmpty(),
+        )
+        if (branch != null) {
+            TextButton(onClick = { onOpenBranch(branch.id) }) { Text("Voir la branche") }
+        }
+
+        OutlinedTextField(
+            value = form.version,
+            onValueChange = viewModel::setVersion,
+            label = { Text("Version installée") },
+            placeholder = { branch?.latestVersion?.let { Text(it) } },
+            supportingText = {
+                val latest = branch?.latestVersion
+                if (latest != null) Text("Dernière version publiée : $latest (${formatDate(branch?.latestReleaseDate)})")
+            },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+            modifier = Modifier.fillMaxWidth(),
+        )
+        val recent = branch?.releases.orEmpty().take(VERSION_SUGGESTIONS)
+        if (recent.isNotEmpty()) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                recent.forEach { release ->
+                    SuggestionChip(
+                        onClick = { viewModel.setVersion(release.version) },
+                        label = { Text(release.version) },
+                    )
+                }
+            }
+        }
+
+        Button(
+            onClick = viewModel::save,
+            enabled = form.valid,
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+        ) { Text("Enregistrer") }
     }
 }
 
