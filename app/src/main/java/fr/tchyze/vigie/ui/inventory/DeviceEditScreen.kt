@@ -169,7 +169,11 @@ private fun DeviceFormContent(
             placeholder = { branch?.latestVersion?.let { Text(it) } },
             supportingText = {
                 val latest = branch?.latestVersion
-                if (latest != null) Text("Dernière version publiée : $latest (${formatDate(branch?.latestReleaseDate)})")
+                if (latest != null) {
+                    Text("Dernière version publiée : $latest (${formatDate(branch?.latestReleaseDate)})")
+                } else if (branch != null) {
+                    Text("La source ne publie pas les versions de ce produit : saisissez la version installée.")
+                }
             },
             singleLine = true,
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),

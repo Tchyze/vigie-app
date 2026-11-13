@@ -16,7 +16,13 @@ enum class Verdict {
     /** À jour sur une branche supportée. */
     UP_TO_DATE,
 
-    /** Branche absente des données ou dernière version inconnue : impossible de conclure. */
+    /**
+     * Branche supportée, mais la source ne publie pas ses versions (Cisco IOS XE, Stormshield…) :
+     * la version installée est à vérifier auprès de l'éditeur.
+     */
+    UNVERIFIED,
+
+    /** Branche absente des données : impossible de conclure. */
     UNKNOWN,
 
     /** À jour, mais la branche arrive en fin de support : prévoir une montée de branche. */
@@ -51,13 +57,13 @@ data class DeviceCheck(
             securityMissed -> Verdict.SECURITY_UPDATE
             versionState == VersionState.BEHIND -> Verdict.UPDATE
             status == BranchStatus.EOL_SOON -> Verdict.EOL_SOON
-            versionState == VersionState.UNKNOWN -> Verdict.UNKNOWN
+            versionState == VersionState.UNKNOWN -> Verdict.UNVERIFIED
             else -> Verdict.UP_TO_DATE
         }
 }
 
 /** Nombre d'équipements par niveau d'urgence, pour l'en-tête de l'inventaire. */
-data class InventorySummary(val toFix: Int, val toWatch: Int, val upToDate: Int, val unknown: Int)
+data class InventorySummary(val toFix: Int, val toWatch: Int, val upToDate: Int, val unverified: Int, val unknown: Int)
 
 object Inventory {
 
@@ -92,6 +98,7 @@ object Inventory {
             toFix = n(Verdict.EOL, Verdict.SECURITY_UPDATE),
             toWatch = n(Verdict.UPDATE, Verdict.EOL_SOON),
             upToDate = n(Verdict.UP_TO_DATE),
+            unverified = n(Verdict.UNVERIFIED),
             unknown = n(Verdict.UNKNOWN),
         )
     }

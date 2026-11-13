@@ -13,8 +13,8 @@ android {
         applicationId = "fr.tchyze.vigie"
         minSdk = 26
         targetSdk = 37
-        versionCode = 1
-        versionName = "0.1.0-beta"
+        versionCode = 2
+        versionName = "0.1.1-beta"
     }
 
     // Signature des versions publiées : clé fournie par les secrets du dépôt (voir README).

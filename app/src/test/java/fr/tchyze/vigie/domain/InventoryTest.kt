@@ -63,10 +63,18 @@ class InventoryTest {
     }
 
     @Test
-    fun `sans dernière version publiée, impossible de conclure`() = runTest {
+    fun `sans dernière version publiée, une branche supportée est à vérifier`() = runTest {
         val check = Inventory.check(device("sns", "stormshield-sns", "stormshield-sns-5.0", "5.0.2"), snapshot(), today)
         assertEquals(VersionState.UNKNOWN, check.versionState)
-        assertEquals(Verdict.UNKNOWN, check.verdict)
+        assertEquals(Verdict.UNVERIFIED, check.verdict)
+    }
+
+    @Test
+    fun `sans dernière version publiée, le statut de la branche reste pris en compte`() = runTest {
+        val eolSoon = Inventory.check(device("sw", "cisco-ios-xe", "cisco-ios-xe-17.12", "17.12.4"), snapshot(), today)
+        assertEquals(Verdict.EOL_SOON, eolSoon.verdict)
+        val eol = Inventory.check(device("sns", "stormshield-sns", "stormshield-sns-4.3", "4.3.30"), snapshot(), today)
+        assertEquals(Verdict.EOL, eol.verdict)
     }
 
     @Test
@@ -87,8 +95,11 @@ class InventoryTest {
             device("secu", "fortios", "fortios-7.4", "7.4.12", 4),
             device("bientot", "nginx", "nginx-1.30", "1.30.6", 5),
         )
-        val checks = Inventory.build(snapshot(), devices, today)
-        assertEquals(listOf("eol", "secu", "bientot", "a-ok", "b-ok"), checks.map { it.device.name })
-        assertEquals(InventorySummary(toFix = 2, toWatch = 1, upToDate = 2, unknown = 0), Inventory.summary(checks))
+        val checks = Inventory.build(snapshot(), devices + device("sns", "stormshield-sns", "stormshield-sns-5.0", "5.0.2", 6), today)
+        assertEquals(listOf("eol", "secu", "bientot", "sns", "a-ok", "b-ok"), checks.map { it.device.name })
+        assertEquals(
+            InventorySummary(toFix = 2, toWatch = 1, upToDate = 2, unverified = 1, unknown = 0),
+            Inventory.summary(checks),
+        )
     }
 }

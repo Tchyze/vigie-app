@@ -19,7 +19,7 @@ data class InventoryUiState(
     /** Vrai tant que la base locale ou les données publiées ne sont pas chargées. */
     val loading: Boolean = true,
     val checks: List<DeviceCheck> = emptyList(),
-    val summary: InventorySummary = InventorySummary(0, 0, 0, 0),
+    val summary: InventorySummary = InventorySummary(0, 0, 0, 0, 0),
 )
 
 class InventoryViewModel(
