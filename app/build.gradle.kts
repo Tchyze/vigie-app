@@ -14,12 +14,27 @@ android {
         minSdk = 26
         targetSdk = 37
         versionCode = 1
-        versionName = "0.1.0"
+        versionName = "0.1.0-beta"
+    }
+
+    // Signature des versions publiées : clé fournie par les secrets du dépôt (voir README).
+    // Sans clé, la version release est signée avec la clé debug, pour pouvoir la tester.
+    val releaseKeystore = System.getenv("VIGIE_KEYSTORE")?.takeIf { it.isNotBlank() }?.let { file(it) }
+    signingConfigs {
+        if (releaseKeystore != null) {
+            create("release") {
+                storeFile = releaseKeystore
+                storePassword = System.getenv("VIGIE_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("VIGIE_KEY_ALIAS")
+                keyPassword = System.getenv("VIGIE_KEY_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
         }
     }
 

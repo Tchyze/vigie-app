@@ -9,6 +9,19 @@ L'application **ne collecte rien** elle-même. Elle lit les JSON statiques publi
 [`vigie-collector`](https://github.com/Tchyze/vigie-collector) sur GitHub Pages. Le format de ces
 fichiers est défini par le collecteur (`SCHEMA.md` et `schema/*.schema.json`, `schema_version` 1).
 
+## Fonctionnalités
+
+- **Fil** : dernière version de chaque branche suivie encore supportée, badge sécurité et fin de
+  support proche ; détail d'une branche (dates de fin de support, historique, avis liés).
+- **Inventaire** : vos équipements avec leur version installée et un verdict « à jour »,
+  « mise à jour », « sécurité », « fin de support proche » ou « hors support ».
+- **Avis** : avis de sécurité des éditeurs, filtrés sur vos technologies et par sévérité.
+- **Réglages** : mode démo ou données publiées, fréquence d'actualisation, notifications,
+  technologies suivies, export et import de l'inventaire, sources des données.
+- **Notifications** : nouvelles versions, nouveaux avis et fins de support des branches suivies ou
+  présentes dans l'inventaire, vérifiés en arrière-plan. La première vérification sert de
+  référence : seules les nouveautés suivantes sont notifiées.
+
 ## Confidentialité
 
 - L'inventaire et les préférences restent **uniquement sur le téléphone**. L'application n'a ni
@@ -113,6 +126,34 @@ Chaque push lance les tests puis le build. L'APK est disponible en artefact `vig
 page du workflow (onglet *Actions*). Attention : il est signé par la clé debug du runner, différente de
 la vôtre. Il faut donc désinstaller une version construite localement avant de l'installer, ce qui
 **efface l'inventaire** si vous ne l'avez pas exporté.
+
+## Publier une version
+
+Pousser un tag publie la version sur GitHub (workflow `release.yml`) : tests, APK release signé,
+version marquée « pré-version » si le tag contient un tiret (`0.1.0-beta`). Les notes viennent de
+`docs/release-notes/<tag>.md`. Pensez à mettre à jour `versionName` et `versionCode` dans
+`app/build.gradle.kts` avant de poser le tag.
+
+```bash
+git tag 0.1.0-beta && git push origin 0.1.0-beta
+```
+
+### Clé de signature
+
+Pour que les versions successives s'installent par-dessus les précédentes, elles doivent être
+signées par la même clé. Créez-la une fois et gardez-la précieusement (hors du dépôt) :
+
+```bash
+keytool -genkeypair -v -keystore ~/vigie-release.jks -alias vigie -keyalg RSA -keysize 4096 -validity 10000
+```
+
+Puis ajoutez quatre secrets au dépôt (*Settings › Secrets and variables › Actions*) :
+`VIGIE_KEYSTORE_BASE64` (sortie de `base64 -w0 ~/vigie-release.jks`), `VIGIE_KEYSTORE_PASSWORD`,
+`VIGIE_KEY_ALIAS` (`vigie`) et `VIGIE_KEY_PASSWORD`.
+
+Sans ces secrets, le workflow signe l'APK avec une clé debug temporaire et le signale dans les
+notes de version : il faut alors désinstaller la version précédente (après avoir exporté
+l'inventaire) avant d'installer la nouvelle.
 
 ## Lien avec `vigie-collector`
 
