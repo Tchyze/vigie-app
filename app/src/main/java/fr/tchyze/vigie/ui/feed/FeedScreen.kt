@@ -131,15 +131,25 @@ private fun FeedCard(item: FeedItem, onClick: () -> Unit) {
                 if (item.branch.lts == true) NeutralBadge("LTS")
             }
             Text(item.product.vendor, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    item.branch.latestVersion ?: "Version inconnue",
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.SemiBold,
-                )
-                Spacer(Modifier.width(12.dp))
-                if (item.branch.latestVersion != null) {
+            if (item.branch.latestVersion != null) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        item.branch.latestVersion,
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Spacer(Modifier.width(12.dp))
                     Text(formatDate(item.latestDate), style = MaterialTheme.typography.bodyMedium)
+                }
+            } else {
+                // Cisco IOS XE, Stormshield… : la source donne le cycle de vie, pas les versions.
+                Text(
+                    "Versions non publiées par la source",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                item.branch.eol.triggerDate?.let {
+                    Text("Supportée jusqu'au ${formatDate(it)}", style = MaterialTheme.typography.bodyMedium)
                 }
             }
             if (item.securityFix || item.status != BranchStatus.ACTIVE) {

@@ -113,7 +113,7 @@ private fun Header(s: BranchUiState.Ready) {
     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
         Text(s.product.vendor, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Text(
-            s.branch.latestVersion?.let { "Dernière version : $it" } ?: "Dernière version inconnue",
+            s.branch.latestVersion?.let { "Dernière version : $it" } ?: "Versions non publiées par la source",
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.SemiBold,
         )
@@ -182,7 +182,11 @@ private fun EolSection(eol: Eol, openUrl: (String) -> Unit) {
 private fun LazyListScope.releases(releases: List<Release>, openUrl: (String) -> Unit) {
     if (releases.isEmpty()) {
         item {
-            Text("Aucune version publiée par les sources pour cette branche.", modifier = Modifier.padding(horizontal = 16.dp))
+            Text(
+                "Les sources de Vigie ne publient pas les versions de ce produit : seules les dates de fin de " +
+                    "support sont suivies. Vérifiez la dernière version dans les notes de version de l'éditeur.",
+                modifier = Modifier.padding(horizontal = 16.dp),
+            )
         }
         return
     }

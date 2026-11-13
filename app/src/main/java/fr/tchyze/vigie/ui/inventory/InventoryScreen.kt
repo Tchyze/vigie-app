@@ -41,6 +41,7 @@ import fr.tchyze.vigie.ui.common.BranchStatusBadge
 import fr.tchyze.vigie.ui.common.DataBanner
 import fr.tchyze.vigie.ui.common.NeutralBadge
 import fr.tchyze.vigie.ui.common.containerFactory
+import fr.tchyze.vigie.ui.common.formatDate
 import fr.tchyze.vigie.ui.theme.statusColors
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -116,6 +117,7 @@ private fun SummaryLine(summary: InventorySummary, total: Int) {
         if (summary.toFix > 0) add("${summary.toFix} à traiter")
         if (summary.toWatch > 0) add("${summary.toWatch} à mettre à jour ou à surveiller")
         if (summary.upToDate > 0) add("${summary.upToDate} à jour")
+        if (summary.unverified > 0) add("${summary.unverified} à vérifier")
         if (summary.unknown > 0) add("${summary.unknown} sans conclusion")
     }
     Text(
@@ -163,7 +165,11 @@ fun technology(check: DeviceCheck): String {
 
 private fun detail(check: DeviceCheck): String? = when {
     check.branch == null -> "Cette branche ne figure pas dans les données publiées."
-    check.versionState == VersionState.UNKNOWN -> "Dernière version de la branche inconnue."
+    check.versionState == VersionState.UNKNOWN -> when (check.status) {
+        BranchStatus.EOL -> "La branche n'est plus supportée."
+        else -> "Branche supportée, mais la source ne publie pas ses versions : vérifiez la dernière " +
+            "version auprès de l'éditeur." + endOfSupport(check)
+    }
     check.versionState == VersionState.BEHIND -> {
         val n = check.missed.size
         when {
@@ -176,11 +182,15 @@ private fun detail(check: DeviceCheck): String? = when {
     else -> null
 }
 
+private fun endOfSupport(check: DeviceCheck): String =
+    check.branch?.eol?.triggerDate?.let { " Fin de support : ${formatDate(it)}." } ?: ""
+
 @Composable
 fun VerdictBadge(verdict: Verdict, modifier: Modifier = Modifier) {
     val c = statusColors
     when (verdict) {
         Verdict.UP_TO_DATE -> Badge("À jour", c.ok, c.onOk, modifier)
+        Verdict.UNVERIFIED -> NeutralBadge("À vérifier", modifier)
         Verdict.UNKNOWN -> NeutralBadge("Inconnu", modifier)
         Verdict.EOL_SOON -> Badge("Fin de support proche", c.warning, c.onWarning, modifier)
         Verdict.UPDATE -> Badge("Mise à jour", c.warning, c.onWarning, modifier)
